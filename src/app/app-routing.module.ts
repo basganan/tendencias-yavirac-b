@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [];
-
+import { NopagesfoundComponent } from './nopagesfound/nopagesfound.component';
+import { AuthRoutingModule } from './pages/auth-routing.module';
+import { PagesRoutingModule } from './pages/pages-routing.module';
+const routes: Routes = [
+{ path: '**', component: NopagesfoundComponent },
+];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+declarations: [],
+imports: [
+RouterModule.forRoot(routes),
+PagesRoutingModule,
+AuthRoutingModule,
+],
+exports: [RouterModule]
 })
 export class AppRoutingModule { }
