@@ -12,6 +12,7 @@ import { CatalogueComponent } from './pages/catalogue/catalogue.component';
 import { PagesComponent } from './pages/pages.component';
 import { PagesModule } from './pages/pages.module';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PagesModule
+    PagesModule,
+    HttpClientModule
 
   ],
   providers: [],
