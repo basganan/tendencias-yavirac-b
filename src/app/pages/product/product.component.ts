@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ProducthttpService } from 'src/app/services/product-http.service';
 
 @Component({
   selector: 'app-product',
@@ -9,63 +9,66 @@ import { HttpClient } from '@angular/common/http';
 
 export class ProductComponent implements OnInit {
 
-  constructor(private http: HttpClient ) { }
+  constructor(private productHttpService: ProducthttpService) { }
 
   ngOnInit(): void {
 
-    this.getProducts()
-    this.getProduct()
-    this.ProductCreate()
-    this.ProductUpdate()
-    this.ProductDelete()
+    //this.getProducts()
+    //this.getProduct()
+    //this.ProductCreate()
+   //this.ProductUpdate()
+   //this.ProductDelete()
 
 
   }
 
-getProducts(){
-    return this.http.get("http://api.escuelajs.co/api/v1/products").subscribe
-    (res=>{
-    console.log(res)
+  getProducts() {
+    this.productHttpService.getAll().subscribe
+      (res => {
+        console.log(res)
+      })
+  }
+
+  getProduct() {
+   this.productHttpService.getOne(1).subscribe(res => {
+      console.log(res)
     })
+  }
+
+
+  createProduct() {
+    const product = {
+
+      title: "Titulo",
+      price: 55.60,
+      description: "Esfero-Brayan Ganan",
+      images: ["asdfa"],
+      categoryId: 1,
     }
+    return this.productHttpService.store().subscribe(res => {
+      console.log(res)
+    })
+  }
 
-getProduct(){
-    return this.http.get('http://api.escuelajs.co/api/v1/products/11').subscribe(res=>{
-  console.log(res)})
+  ProductUpdate() {
+    const product = {
+      title: "Titulo",
+      price: 55.60,
+      description: "Esfero Brayan Ganan actualizado",
+      images: ["asdfa"],
+      categoryId: 1
     }
+    return this.productHttpService.update(2).subscribe(res => {
+      console.log(res)
+    })
+  }
+
+  ProductDelete() {
+    this.productHttpService.destroy(3).subscribe
+      (res => { console.log(res) })
 
 
-ProductCreate(){
-const product = {
-
-  title:"Titulo",
-  price:55.60,
-  description: "Esfero-Brayan Ganan",
-  images:["asdfa"],
-  categoryId:1
-}
-return this.http.post("http://api.escuelajs.co/api/v1/products", product).subscribe(res=>{
-console.log(res)})
-}
-
-ProductUpdate(){
-const product = {
-title: "Titulo",
-price:55.60,
-description:"Esfero Brayan Ganan actualizado",
-images:["asdfa"],
-categoryId:1
-}
-return this.http.put("http://api.escuelajs.co/api/v1/products/11", product).subscribe(res=>{
-console.log(res)})
-}
-
-ProductDelete(){
-return this.http.delete("http://api.escuelajs.co/api/v1/products/13").subscribe
-(res=>{console.log(res)})
-
-
-}
+  }
 
 
 
