@@ -45,9 +45,9 @@ export class ProductComponent implements OnInit {
       images: ["asdfa"],
       categoryId: 1,
     }
-    return this.productHttpService.store().subscribe(res => {
-      console.log(res)
-    })
+    //return this.productHttpService.store().subscribe(res => {
+      //console.log(res)
+    //})
   }
 
   ProductUpdate() {
@@ -58,9 +58,9 @@ export class ProductComponent implements OnInit {
       images: ["asdfa"],
       categoryId: 1
     }
-    return this.productHttpService.update(2).subscribe(res => {
-      console.log(res)
-    })
+    //return this.productHttpService.update(2).subscribe(res => {
+      //console.log(res)
+    //})
   }
 
   ProductDelete() {
