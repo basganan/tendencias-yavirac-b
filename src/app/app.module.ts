@@ -8,7 +8,7 @@ import { PagesComponent } from './pages/pages.component';
 import { NopagesfoundComponent } from './nopagesfound/nopagesfound.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { PageModule } from './pages/page.module';
+import { PageModule } from './pages/pages.module';
 
 
 @NgModule({
