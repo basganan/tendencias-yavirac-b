@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductComponent } from './product/product.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { ProductComponent } from './product/product.component';
   ],
   imports: [
     CommonModule,
+    FormsModule
   ],
 })
 export class PageModule { }
